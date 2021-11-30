@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useInput from "../customHooks/useInput";
+import useInputReducer from "../customHooks/useInputReducer";
 const BasicForm = (props) => {
   const checkValidityName = (inputValue) => {
     return inputValue.trim() !== "";
@@ -14,7 +14,7 @@ const BasicForm = (props) => {
     inputChangeHandler: nameChangeHandler,
     inputBlurHanlder: nameBlurHandler,
     inputHasError: nameHasError,
-  } = useInput(checkValidityName);
+  } = useInputReducer(checkValidityName);
   const {
     inputValue: lnameValue,
     inputReset: lnameReset,
@@ -22,7 +22,7 @@ const BasicForm = (props) => {
     inputChangeHandler: lnameChangeHandler,
     inputBlurHanlder: lnameBlurHandler,
     inputHasError: lnameHasError,
-  } = useInput(checkValidityName);
+  } = useInputReducer(checkValidityName);
   const {
     inputValue: emailValue,
     inputReset: emailReset,
@@ -30,7 +30,7 @@ const BasicForm = (props) => {
     inputChangeHandler: emailChangeHandler,
     inputBlurHanlder: emailBlurHandler,
     inputHasError: emailHasError,
-  } = useInput(checkValidityEmail);
+  } = useInputReducer(checkValidityEmail);
 
   let formIsValid = false;
   if (nameIsValid && lnameIsValid && emailIsValid) {
